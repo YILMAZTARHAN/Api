@@ -1,7 +1,6 @@
-package get_http_request;
+package get_http_request.day04;
 
 import io.restassured.response.Response;
-import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
@@ -18,17 +17,17 @@ public class GetRequest02 {
 
         response.prettyPrint();           //response'daki body'i getirir
 
-        //response.prettyPeek();              //response daki her şeyi getirir
+        //response.prettyPeek();          //response daki her şeyi getirir
 
         //response.then().log().all();      response daki her şeyi getirir
 
-        //Headers
+        //Headers Test
         response.then().assertThat()
                 .statusCode(200)
                 .contentType("application/json; charset=utf-8")
                 .statusLine("HTTP/1.1 200 OK");
 
-        //Body
+        //Body Test
         response.then().body("data[0].first_name", equalTo("George")
                 , "data[0].last_name", equalTo("Bluth")
                 , "data[1].email", equalTo("janet.weaver@reqres.in"));
@@ -38,7 +37,5 @@ public class GetRequest02 {
                 , "data[1].first_name", equalTo("Janet")
                 , "data[1].last_name", equalTo("Weaver")
                 , "data[1].avatar", equalTo("https://reqres.in/img/faces/2-image.jpg"));
-
-
     }
 }
