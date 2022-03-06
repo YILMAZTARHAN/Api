@@ -1,4 +1,4 @@
-package get_http_request;
+package get_http_request.day06;
 
 import Utilities.Authentication;
 import io.restassured.http.ContentType;
