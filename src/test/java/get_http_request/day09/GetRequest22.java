@@ -1,6 +1,6 @@
 package get_http_request.day09;
 
-import Test_data.HerOkuAppTestData;
+import test_data.HerOkuAppTestData;
 import base_url.HerOkuAppBaseUrl;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;

@@ -1,6 +1,6 @@
 package get_http_request.day10;
 
-import Test_data.DummyTestData;
+import test_data.DummyTestData;
 import base_url.DummyBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;

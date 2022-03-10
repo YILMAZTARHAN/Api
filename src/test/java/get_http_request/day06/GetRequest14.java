@@ -1,6 +1,5 @@
 package get_http_request.day06;
 
-import Utilities.Authentication;
 import base_url.GMIBankBaseUrl;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;

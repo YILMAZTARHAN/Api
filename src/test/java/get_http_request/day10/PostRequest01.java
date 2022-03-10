@@ -1,10 +1,12 @@
 package get_http_request.day10;
 
-import Test_data.HerOkuAppTestData;
+import test_data.HerOkuAppTestData;
 import base_url.HerOkuAppBaseUrl;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
+import org.junit.Assert;
 import org.junit.Test;
 
 
@@ -61,6 +63,23 @@ public class PostRequest01 extends HerOkuAppBaseUrl {
                 .post("/{parametre1}");
 
         response.prettyPrint();
+
+        //DOGRULAMA
+        //1.YOL jSON PATH
+
+        JsonPath json=response.jsonPath();
+        response.then().assertThat().statusCode(200);
+
+        Assert.assertEquals(expectedRequestData.getString("firstname"),json.getString("booking.firstname"));
+        Assert.assertEquals(expectedRequestData.getString("lastname"),json.getString("booking.lastname"));
+        Assert.assertEquals(expectedRequestData.getInt("totalprice"),json.getInt("booking.totalprice"));
+        Assert.assertEquals(expectedRequestData.getBoolean("depositpaid"),json.getBoolean("booking.depositpaid"));
+
+        Assert.assertEquals(expectedRequestData.getJSONObject("bookingdates").getString("checkin"),
+                json.getString("booking.bookingdates.checkin"));
+
+        Assert.assertEquals(expectedRequestData.getJSONObject("bookingdates").getString("checkout"),
+                json.getString("booking.bookingdates.checkout"));
 
     }
 }

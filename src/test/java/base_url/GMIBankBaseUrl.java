@@ -1,6 +1,6 @@
 package base_url;
 
-import Utilities.Authentication;
+import utilities.Authentication;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Before;
