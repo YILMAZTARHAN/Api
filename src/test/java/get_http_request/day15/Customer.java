@@ -1,38 +1,28 @@
 package get_http_request.day15;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Customer {
-   /* {
-    “id”: 110452,
-    “firstName”: “Jasmine”,
-    “lastName”: “Stehr”,
-    “middleInitial”: “V”,
-    “email”: “marni.zboncak@yahoo.com”,
-    “mobilePhoneNumber”: “463-609-2097”,
-    “phoneNumber”: “1-112-497-0270”,
-    “zipCode”: “16525”,
-    “address”: “14387 Al Ridge5343 Bert Burgs”,
-    “city”: “Waltermouth”,
-    “ssn”: “761-59-2911”,
-    “createDate”: “2021-11-28T21:00:00Z”,
-    “zelleEnrolled”: false,
-    “country”: {
-        “id”: 3,
-        “name”: “USA”,
-        “states”: null
-    },
-    “state”: “California”,
-    “user”: {
-        “id”: 110016,
-        “login”: “leopoldo.reinger”,
-        “firstName”: “Jasmine”,
-        “lastName”: “Stehr”,
-        “email”: “marni.zboncak@yahoo.com”,
-        “activated”: true,
-        “langKey”: “en”,
-        “imageUrl”: null,
-        “resetDate”: null
-    }
-    */
+    /*
+    {
+    "id": 110452,
+    "firstName": "Jasmine",
+    "lastName": "Stehr",
+    "middleInitial": "V",
+    "email": "marni.zboncak@yahoo.com",
+    "mobilePhoneNumber": "463-609-2097",
+    "phoneNumber": "1-112-497-0270",
+    "zipCode": "16525",
+    "address": "14387 Al Ridge5343 Bert Burgs",
+    "city": "Waltermouth",
+    "ssn": "761-59-2911",
+    "createDate": "2021-11-28T21:00:00Z",
+    "zelleEnrolled": false,
+    "country": {         },
+    "state": "California",
+    "user": {           }
+     */
 
     private int id;
     private String firstName;
@@ -47,10 +37,10 @@ public class Customer {
     private String ssn;
     private String createDate;
     private boolean zelleEnrolled;
-    private String state;
-    private String accounts;
     private Country country;
+    private String state;
     private User user;
+    private String accounts;
 
     public int getId() {
         return id;
@@ -156,28 +146,20 @@ public class Customer {
         this.zelleEnrolled = zelleEnrolled;
     }
 
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getAccounts() {
-        return accounts;
-    }
-
-    public void setAccounts(String accounts) {
-        this.accounts = accounts;
-    }
-
     public Country getCountry() {
         return country;
     }
 
     public void setCountry(Country country) {
         this.country = country;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public User getUser() {
@@ -188,7 +170,18 @@ public class Customer {
         this.user = user;
     }
 
-    public Customer(int id, String firstName, String lastName, String middleInitial, String email, String mobilePhoneNumber, String phoneNumber, String zipCode, String address, String city, String ssn, String createDate, boolean zelleEnrolled, String state, String accounts, Country country, User user) {
+    public String getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(String accounts) {
+        this.accounts = accounts;
+    }
+
+    public Customer() {
+    }
+
+    public Customer(int id, String firstName, String lastName, String middleInitial, String email, String mobilePhoneNumber, String phoneNumber, String zipCode, String address, String city, String ssn, String createDate, boolean zelleEnrolled, Country country, String state, User user, String accounts) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -202,13 +195,10 @@ public class Customer {
         this.ssn = ssn;
         this.createDate = createDate;
         this.zelleEnrolled = zelleEnrolled;
-        this.state = state;
-        this.accounts = accounts;
         this.country = country;
+        this.state = state;
         this.user = user;
-    }
-
-    public Customer() {
+        this.accounts = accounts;
     }
 
     @Override
@@ -227,10 +217,10 @@ public class Customer {
                 ", ssn='" + ssn + '\'' +
                 ", createDate='" + createDate + '\'' +
                 ", zelleEnrolled=" + zelleEnrolled +
-                ", state='" + state + '\'' +
-                ", accounts='" + accounts + '\'' +
                 ", country=" + country +
+                ", state='" + state + '\'' +
                 ", user=" + user +
+                ", accounts='" + accounts + '\'' +
                 '}';
     }
 }

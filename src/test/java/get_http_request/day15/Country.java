@@ -1,20 +1,22 @@
 package get_http_request.day15;
 
-public class Country {
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
-    /* “country”: {
-        “id”: 3,
-        “name”: “USA”,
-        “states”: null
-    },
-    */
-    //1)DEĞİŞKENLERİ PRİVATE YAP
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Country {
+    /*
+        "country": {
+                "id": 3,
+                "name": "USA",
+                "states": null
+    }
+     */
+    //1) Değişkenleri private yap
     private int id;
     private String name;
     private String states;
 
-    //2)GET VE SETTER YAP
-
+    //2 Getter ve Setter
     public int getId() {
         return id;
     }
@@ -39,25 +41,26 @@ public class Country {
         this.states = states;
     }
 
-    //3)PARAMETRELİ VE PARAMETRESİZ CONSTRUCTOR OLUŞTUR
+    //3)
 
 
-    public void user() {
-    }
-
-    //4)TOSTRİNG OLUŞTUR
-    public String toString() {
-        return "Country{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", states='" + states + '\'' +
-                '}';
+    public Country() {
     }
 
     public Country(int id, String name, String states) {
         this.id = id;
         this.name = name;
         this.states = states;
+    }
 
+    //4)
+
+    @Override
+    public String toString() {
+        return "Country{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", states='" + states + '\'' +
+                '}';
     }
 }
